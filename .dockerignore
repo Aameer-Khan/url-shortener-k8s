@@ -1,0 +1,8 @@
+.git
+.gitignore
+venv
+**pycache**
+*.pyc
+tests
+README.md
+
