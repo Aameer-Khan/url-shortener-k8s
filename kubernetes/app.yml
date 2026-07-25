@@ -29,6 +29,14 @@ metadata:
   namespace: url-shortener
 spec:
   replicas: 3
+  revisionHistoryLimit: 5
+  
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+      
   selector:
     matchLabels:
       app: url-shortener
@@ -37,9 +45,11 @@ spec:
       labels:
         app: url-shortener
     spec:
+      terminationGracePeriodSeconds: 30
       containers:
         - name: url-shortener
           image: xilinx19/url-shortener:v3
+          imagePullPolicy: IfNotPresent
           resources:
             requests:
               cpu: "100m"
