@@ -21,15 +21,16 @@ See [docs/architecture.md](docs/architecture.md)
 ---
 ## Features
 
-- URL Shortening
-- URL Redirection
-- PostgreSQL Database
-- Dockerized Application
-- Kubernetes Deployment
-- Horizontal Pod Autoscaler (HPA)
-- Ingress
+- URL shortening service
+- PostgreSQL persistence
+- Kubernetes deployment
+- ConfigMaps and Secrets
+- Health probes
+- Resource requests and limits
+- Horizontal Pod Autoscaler
 - Network Policies
-- GitHub Actions CI
+- Kustomize base configuration
+- GitOps-ready structure
 
 ---
 
@@ -49,37 +50,28 @@ See [docs/architecture.md](docs/architecture.md)
 
 ## Project Structure
 
-```text
-(Add tree output here)
-```
+app/
+
+kubernetes/
+
+argocd/
+
+docs/
+
+scripts/
 
 ---
 
-## Architecture
+## Skills Demonstrated
 
-(Add diagram later)
-
----
-
-## Getting Started
-
-### Clone Repository
-
-```bash
-git clone ...
-```
-
-### Build Docker Image
-
-```bash
-docker build -t url-shortener .
-```
-
-### Deploy to Kubernetes
-
-```bash
-kubectl apply -f kubernetes/
-```
+- Docker
+- Kubernetes
+- GitHub Actions
+- Kustomize
+- Argo CD
+- PostgreSQL
+- Python
+- GitOps
 
 ---
 
@@ -88,6 +80,7 @@ kubectl apply -f kubernetes/
 - [x] Flask Application
 - [x] Docker
 - [x] Kubernetes
+- [x] Kustomize
 - [ ] GitOps with Argo CD
 - [ ] Terraform
 - [ ] AWS EKS
