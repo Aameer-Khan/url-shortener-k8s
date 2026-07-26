@@ -14,6 +14,11 @@ The objective of this project is not to build a feature-rich URL Shortener appli
 
 ---
 
+## Architecture
+
+See [docs/architecture.md](docs/architecture.md)
+
+---
 ## Features
 
 - URL Shortening
@@ -92,6 +97,18 @@ kubectl apply -f kubernetes/
 
 ---
 
+## Project Journey
+
+- ✅ Dockerized the application
+- ✅ Deployed on Kubernetes
+- ✅ Added health probes
+- ✅ Configured HPA
+- ✅ Implemented Network Policies
+- ✅ Organized manifests using Kustomize
+- ✅ Prepared GitOps with Argo CD
+- 🚧 GitHub Actions (In Progress)
+
+---
 ## Engineering Journal
 
 Engineering progress is documented under:
