@@ -7,3 +7,8 @@ resources:
   - ingress.yml
   - hpa.yml
   - network-policy.yml
+
+images:
+  - name: url-shortener
+    newName: 891377017591.dkr.ecr.us-east-1.amazonaws.com/url-shortener
+    newTag: latest
