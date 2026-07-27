@@ -7,6 +7,10 @@ on:
 
   workflow_dispatch:
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   build:
 
@@ -36,6 +40,14 @@ jobs:
         run: |
           pytest
 
+      - name: Run Trivy Filesystem Scan
+        uses: aquasecurity/trivy-action@0.28.0
+        with:
+          scan-type: fs
+          scan-ref: .
+          severity: HIGH,CRITICAL
+          exit-code: "1"
+
       - name: Setup Docker Buildx
         uses: docker/setup-buildx-action@v3
 
@@ -55,8 +67,17 @@ jobs:
           context: .
           push: true
           tags: |
-            tags: |
-            <ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/url-shortener:${{ github.sha }}
+            891377017591.dkr.ecr.us-east-1.amazonaws.com/url-shortener:${{ github.sha }}
+            891377017591.dkr.ecr.us-east-1.amazonaws.com/url-shortener:latest
           platforms: linux/amd64
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+
+      - name: Run Trivy Image Scan
+        uses: aquasecurity/trivy-action@0.28.0
+        with:
+          image-ref: <ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/url-shortener:${{ github.sha }}
+          format: table
+          severity: HIGH,CRITICAL
+          exit-code: "1"
