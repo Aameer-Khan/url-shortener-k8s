@@ -1,5 +1,5 @@
 module "vpc" {
-  source = "../../modules/vpc"
+  source = "../../modules/VPC"
 
   project_name = var.project_name
 
@@ -20,7 +20,7 @@ module "vpc" {
 
 
 module "eks" {
-  source = "../../modules/eks"
+  source = "../../modules/EKS"
 
   project_name = var.project_name
 
