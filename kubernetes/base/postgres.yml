@@ -30,7 +30,7 @@ metadata:
   name: postgres-pvc
   namespace: url-shortener
 spec:
-  storageClassName: standard
+  storageClassName: gp2
   accessModes:
   - ReadWriteOnce
   resources:
@@ -63,6 +63,9 @@ spec:
             name: postgres-config
         - secretRef:
             name: postgres-secret
+        env:
+          - name: PGDATA
+            value: /var/lib/postgresql/data/pgdata
         volumeMounts:
         - name: postgres-storage
           mountPath: /var/lib/postgresql/data
