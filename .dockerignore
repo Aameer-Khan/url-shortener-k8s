@@ -1,8 +1,22 @@
 .git
 .gitignore
-venv
-**pycache**
-*.pyc
-tests
+
+Terraform/
+kubernetes/
+argoCD/
+docs/
+test/
+
 README.md
 
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+venv/
+.venv/
+
+*.tfstate
+*.tfstate.*
+.terraform/

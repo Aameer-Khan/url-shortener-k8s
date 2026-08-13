@@ -3,20 +3,18 @@ kind: Ingress
 metadata:
   name: url-shortener-ingress
   namespace: url-shortener
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
 spec:
-  ingressClassName: nginx
-
+  ingressClassName: alb
   rules:
-  - host: url-shortener.local
-
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-
-        backend:
-          service:
-            name: url-shortener-service
-
-            port:
-              number: 8080
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: url-shortener-service
+                port:
+                  number: 8080
