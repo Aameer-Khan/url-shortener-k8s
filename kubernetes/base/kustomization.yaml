@@ -8,6 +8,6 @@ resources:
   - hpa.yml
 
 images:
-  - name: url-shortener
+  - name: xilinx19/url-shortener
     newName: 586789648037.dkr.ecr.us-east-1.amazonaws.com/url-shortener
-    newTag: latest
+    newTag: v1
