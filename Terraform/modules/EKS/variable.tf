@@ -1,12 +1,22 @@
 variable "project_name" {
-  description = "Name of the project used for naming AWS resources."
+  description = "Name of the project used for resource naming."
   type        = string
 }
 
 variable "common_tags" {
-  description = "Common tags applied to AWS resources."
+  description = "Common tags applied to EKS resources."
   type        = map(string)
   default     = {}
+}
+
+variable "public_subnet_ids" {
+  description = "IDs of the public subnets used by the EKS control plane."
+  type        = list(string)
+}
+
+variable "private_subnet_ids" {
+  description = "IDs of the private subnets used by the EKS control plane and worker nodes."
+  type        = list(string)
 }
 
 variable "eks_cluster_version" {
@@ -16,25 +26,25 @@ variable "eks_cluster_version" {
 }
 
 variable "endpoint_public_access" {
-  description = "Whether the EKS Kubernetes API endpoint is publicly accessible."
+  description = "Whether the EKS API endpoint is publicly accessible."
   type        = bool
   default     = true
 }
 
 variable "endpoint_private_access" {
-  description = "Whether the EKS Kubernetes API endpoint is privately accessible."
+  description = "Whether the EKS API endpoint is privately accessible."
   type        = bool
   default     = false
 }
 
 variable "node_instance_types" {
-  description = "EC2 instance types used by the EKS managed node group."
+  description = "EC2 instance types for the EKS managed node group."
   type        = list(string)
   default     = ["t3.medium"]
 }
 
 variable "node_capacity_type" {
-  description = "Capacity type for the EKS managed node group."
+  description = "Capacity type for the managed node group."
   type        = string
   default     = "ON_DEMAND"
 }
