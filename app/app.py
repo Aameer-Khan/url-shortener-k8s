@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify, redirect
+from prometheus_flask_exporter import PrometheusMetrics
 import psycopg2
 import os
 import random
@@ -6,12 +7,13 @@ import string
 
 app = Flask(__name__)
 
+metrics = PrometheusMetrics(app)
+
 DB_HOST = os.getenv("DB_HOST")
 DB_PORT = os.getenv("DB_PORT", "5432")
 DB_NAME = os.getenv("DB_NAME")
 DB_USER = os.getenv("DB_USER")
 DB_PASSWORD = os.getenv("DB_PASSWORD")
-
 
 def get_connection():
     return psycopg2.connect(

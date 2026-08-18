@@ -48,7 +48,7 @@ spec:
       terminationGracePeriodSeconds: 30
       containers:
         - name: url-shortener
-          image: xilinx19/url-shortener:v3
+          image: 381491944316.dkr.ecr.us-east-1.amazonaws.com/url-shortener:v4 
           imagePullPolicy: IfNotPresent
           resources:
             requests:
@@ -93,12 +93,15 @@ kind: Service
 metadata:
   name: url-shortener-service
   namespace: url-shortener
+  labels:
+    app: url-shortener
 spec:
   type: ClusterIP
   selector:
     app: url-shortener
   ports:
-    - protocol: TCP
+    - name: http
+      protocol: TCP
       port: 8080
       targetPort: 8080
-      nodePort: 30080 
+

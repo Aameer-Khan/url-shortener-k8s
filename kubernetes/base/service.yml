@@ -3,11 +3,14 @@ kind: Service
 metadata:
   name: url-shortener-service
   namespace: url-shortener
+  labels:
+    app: url-shortener
 spec:
   type: ClusterIP
   selector:
     app: url-shortener
   ports:
-    - protocol: TCP
+    - name: metrics
+      protocol: TCP
       port: 8080
       targetPort: 8080

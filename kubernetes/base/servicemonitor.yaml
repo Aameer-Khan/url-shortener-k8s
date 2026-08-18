@@ -1,0 +1,20 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: url-shortener
+  namespace: monitoring
+  labels:
+    release: monitoring
+spec:
+  namespaceSelector:
+    matchNames:
+      - url-shortener
+
+  selector:
+    matchLabels:
+      app: url-shortener
+
+  endpoints:
+    - port: http
+      path: /metrics
+      interval: 15s

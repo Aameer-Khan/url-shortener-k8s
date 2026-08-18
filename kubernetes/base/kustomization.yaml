@@ -9,5 +9,5 @@ resources:
 
 images:
   - name: xilinx19/url-shortener
-    newName: 586789648037.dkr.ecr.us-east-1.amazonaws.com/url-shortener
+    newName: 347754356200.dkr.ecr.us-east-1.amazonaws.com/url-shortener
     newTag: v1
