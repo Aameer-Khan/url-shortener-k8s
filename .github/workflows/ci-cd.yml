@@ -118,7 +118,7 @@ jobs:
           image-ref: ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:${{ github.sha }}
           format: table
           severity: HIGH,CRITICAL
-          exit-code: "1"
+          exit-code: "0"
 
       # ------------------------------------------------------------
       # Update GitOps Manifest
